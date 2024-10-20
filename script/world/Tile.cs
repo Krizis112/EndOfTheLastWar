@@ -9,7 +9,10 @@ public partial class Tile : Area2D {
 	private RectangleShape2D rectangleShape2D;
 	private string name;
 
-	private Array<Entity> loot;
+	public Array<Entity> loot {get; set;}
+	public float speedMultiplier {get; set;}
+	public float radiation {get; set;}
+	public Color color {get; set;}
 
 	public Tile(string name) {
 		imageTexture = GD.Load<CompressedTexture2D>("res://assets/sprites/map/world/tiles/" + name + ".png");
@@ -48,7 +51,7 @@ public partial class Tile : Area2D {
 
 
 	public void _OnAreaExit(Area2D area2D) {
-		GD.Print("Exit");
+
 	}
 
     public override void _Draw()

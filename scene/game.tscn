@@ -5,8 +5,10 @@
 
 [node name="Game" type="Node2D"]
 
+[node name="Player" parent="." instance=ExtResource("2_7vh5w")]
+light_mask = 2
+z_index = 1
+position = Vector2(29, 47)
+
 [node name="Map" type="Node" parent="."]
 script = ExtResource("1_isw0i")
-
-[node name="Player" parent="." instance=ExtResource("2_7vh5w")]
-position = Vector2(29, 47)
