@@ -14,6 +14,7 @@ public partial class Map : Node
 		tiles = MapUtils.GetTiles(texture2D, Color.Color8(28, 255, 255), "forest");
 		foreach(Tile tile in tiles) {
 			AddChild(tile);
+			//Hui
 		}
 	}
 
