@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbfufso0we0tn"]
+[gd_scene load_steps=3 format=3 uid="uid://dbfufso0we0tn"]
 
 [ext_resource type="Script" path="res://script/world/Map.cs" id="1_isw0i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rhd7q"]
+size = Vector2(266, 228)
 
 [node name="Game" type="Node2D"]
 
 [node name="Map" type="Node" parent="."]
 script = ExtResource("1_isw0i")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(123, 104)
+shape = SubResource("RectangleShape2D_rhd7q")
