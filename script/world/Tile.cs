@@ -33,11 +33,19 @@ public partial class Tile : Area2D {
 
 	}
 
-	public void _OnAreaEntered(Area2D area2D) {
-		if(area2D is not Tile) {
-			GD.Print("Enter");
-		}
+	public void _OnAreaEntered(Area2D area2D)
+	{
+   		 if (!(area2D is Tile))
+ 	   	{
+    	    Node owner = area2D.GetOwner();
+        
+      	  if (owner is Player && owner.Name == "Player")
+      	  {
+       	     ((Player)owner)._Entered();
+      	  }
+    	}
 	}
+
 
 	public void _OnAreaExit(Area2D area2D) {
 		GD.Print("Exit");
@@ -46,7 +54,6 @@ public partial class Tile : Area2D {
     public override void _Draw()
 	{
 		DrawTexture(imageTexture, Vector2.Zero);
-		DrawRect(new Rect2(Vector2.Zero, rectangleShape2D.Size), Colors.Red);
 	}
 
 	public string _GetName() {
