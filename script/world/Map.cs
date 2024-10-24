@@ -6,8 +6,6 @@ public partial class Map : TileMapLayer
 {
 	public override void _Ready()
 	{
-		Items.load();
-		load();
 		Clear();
 		loadFragment(Textures.map);
 	}
