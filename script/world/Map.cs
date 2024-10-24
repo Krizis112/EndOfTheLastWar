@@ -1,22 +1,37 @@
 using Godot;
-using Godot.Collections;
+using static Bioms;
 
-public partial class Map : Node
+[Tool]
+public partial class Map : TileMapLayer
 {
-	private Array<Image> images;
-	private CompressedTexture2D texture2D;
-	Array<Tile> tiles;
-
 	public override void _Ready()
 	{
-		images = new Array<Image>();
-		texture2D = GD.Load<CompressedTexture2D>("res://assets/sprites/map/world/1_1x1.png");
-		tiles = MapUtils.GetTiles(texture2D, Color.Color8(28, 255, 255), "forest");
-		foreach(Tile tile in tiles) {
-			AddChild(tile);
-			//Hui
+		Items.load();
+		load();
+		Clear();
+		loadFragment(Textures.map);
+	}
+
+	private void loadFragment(Texture2D mapFragment) 
+	{
+		Image image = mapFragment.GetImage();
+		int width = mapFragment.GetWidth();
+		int height = mapFragment.GetHeight();
+
+		for (int x = 0; x < width; x++) {
+			for (int y = 0; y < height; y++) {
+				Vector2I position = new Vector2I(x, y);
+				Color color = image.GetPixel(x, y);
+				setTile(color, position);
+			}
 		}
 	}
 
-
+	private void setTile(Color color, Vector2I position) {
+		GD.Print(color.ToHtml(false));
+		biomsColor.TryGetValue(color.ToHtml(false), out Biom biom);
+		if(biom == null) return;
+		SetCell(position, 1, biom.atlasPosition);
+		GetCellTileData(position).SetCustomData("type", biom.type);
+	}
 }

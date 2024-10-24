@@ -62,6 +62,10 @@ texture_atlas={
 "trim_alpha_border_from_region": true
 }
 
+[layer_names]
+
+2d_physics/layer_1="Tiles"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
