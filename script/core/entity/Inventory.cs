@@ -1,65 +1,83 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Godot;
 
 public partial class Inventory : Node {
-	private List<ItemStack> items;
-	public int Length;
-	public event Action<List<ItemStack>> inventoryUpdater;
+    private Dictionary<ItemType, ItemStack> itemStacks;
+    private List<Item> items;
 
-	public override void _Ready() {
-		load();
-	}
+    public int length => itemStacks.Count;
 
-	public void load() {
-		items = new List<ItemStack>();
-		Core.inventory = this;
-	}
+    public event Action<List<ItemStack>> stackUpdater;
+    public event Action<List<Item>> itemUpdater;
 
-	public void addItem(params ItemStack[] itemStacks) {
-		foreach (ItemStack stack in itemStacks) {
-			bool itemFound = false;
-			for (int i = 0; i < items.Count; i++) {
-				if (items[i].item == stack.item) {
-					if (stack.item.stackable) {
-						items[i].count += stack.count;
-						itemFound = true;
-					}
-					break;
-				}
-			}
+    public override void _Ready() {
+        load();
+    }
 
-			if (!itemFound) {
-				items.Add(stack);
-				Length += 1;
-			}
-		}
-		inventoryUpdate(items);
-	}
+    public void load() {
+        itemStacks = new Dictionary<ItemType, ItemStack>();
+        items = new List<Item>();
+        Core.inventory = this;
+    }
 
-	public void removeItem(params ItemStack[] itemStacks) {
-		foreach (ItemStack stack in itemStacks) {
-			for (int i = 0; i < items.Count; i++) {
-				if (items[i].item == stack.item) {
-					if (stack.item.stackable) {
-						if (items[i].count >= stack.count) {
-							items[i].count -= stack.count;
-							if (items[i].count == 0) {
-								items.RemoveAt(i);
-								Length -= 1;
-							}
-							inventoryUpdate(items);
-							return;
-						} else {
-							GD.Print("Not enough items to remove: " + stack.count);
-							return;
-						}
-					}
-				}
-			}
-		}
-	}
-	protected virtual void inventoryUpdate(List<ItemStack> items) {
-		inventoryUpdater?.Invoke(items);
-	}
+    public void addItemStack(params ItemStack[] itemStacksToAdd) {
+        foreach (ItemStack stack in itemStacksToAdd) {
+            if (itemStacks.TryGetValue(stack.type, out var existingStack)) {
+                if (stack.type.stackable) {
+                    existingStack.count += stack.count;
+                }
+            } else {
+                itemStacks[stack.type] = stack;
+            }
+        }
+        inventoryUpdateStacks();
+    }
+
+    public void removeItemStack(params ItemStack[] itemStacksToRemove) {
+        foreach (ItemStack stack in itemStacksToRemove) {
+            if (itemStacks.TryGetValue(stack.type, out var existingStack)) {
+                if (stack.type.stackable) {
+                    if (existingStack.count >= stack.count) {
+                        existingStack.count -= stack.count;
+
+                        if (existingStack.count == 0) {
+                            itemStacks.Remove(stack.type);
+                        }
+                    } else {
+                        GD.Print($"Not enough items to remove: {stack.count}");
+                    }
+                }
+            }
+        }
+        inventoryUpdateStacks();
+    }
+
+    public ItemStack getItemStack(ItemType type) {
+        itemStacks.TryGetValue(type, out var itemStack);
+        return itemStack;
+    }
+
+    public void addItem(Item item) {
+        items.Add(item);
+        inventoryUpdateItems();
+    }
+
+    public void removeItem(Item item) {
+        items.Remove(item);
+        inventoryUpdateItems();
+    }
+
+    public List<Item> getItems() {
+        return items;
+    }
+
+    protected virtual void inventoryUpdateStacks() {
+        stackUpdater?.Invoke(itemStacks.Values.ToList());
+    }
+
+    protected virtual void inventoryUpdateItems() {
+        itemUpdater?.Invoke(items);
+    }
 }

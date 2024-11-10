@@ -10,7 +10,7 @@ public partial class Player : Sprite2D
 	{
 		targetPosition = Position;
 		Core.player = this;
-		Core.inventory.addItem(new ItemStack(ItemTypes.water, 1000));
+		Core.inventory.addItemStack(new ItemStack(ItemTypes.water, 1000));
 		previousTilePosition = Core.mapLayer.LocalToMap(Position);
 	}
 
@@ -19,8 +19,8 @@ public partial class Player : Sprite2D
 		if (@event is InputEventMouseButton mouseEvent && mouseEvent.IsPressed())
 		{
 			targetPosition = GetGlobalMousePosition();
-			Core.inventory.removeItem(new ItemStack(ItemTypes.water, 10));
-			Core.inventory.inventoryUpdater += (items) => {
+			Core.inventory.removeItemStack(new ItemStack(ItemTypes.water, 10));
+			Core.inventory.stackUpdater += (items) => {
 				GD.Print(items[0].count);
 			};
 		}
