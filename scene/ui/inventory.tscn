@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://uegq60wnktdw"]
 
-[ext_resource type="PackedScene" uid="uid://34eqa7jxefd7" path="res://scene/cell.tscn" id="1_7iouv"]
+[ext_resource type="PackedScene" uid="uid://34eqa7jxefd7" path="res://scene/ui/cell.tscn" id="1_7iouv"]
 [ext_resource type="Script" path="res://script/core/ui/GridContainer.cs" id="1_mb7qt"]
 
 [node name="Inventory" type="Control"]

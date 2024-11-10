@@ -8,7 +8,7 @@ public class Biom
 	public int speedMultiplier { get; set; } = 1;
 	public Dictionary<string, TextureRegion> tiles { get; private set; }
 	public string[] colorsArray { get; set; }
-	public Item[] res { get; set; }
+	public ItemType[] resourcesOnLocation { get; set; }
 
 	public Biom(string name) 
 	{
@@ -16,8 +16,9 @@ public class Biom
 		tiles = new Dictionary<string, TextureRegion>();
 	}
 
-	public Biom resources(params Item[] items) 
+	public Biom resources(params ItemType[] items) 
 	{
+		resourcesOnLocation = items;
 		return this;
 	}
 

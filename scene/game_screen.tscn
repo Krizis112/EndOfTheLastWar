@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://lbsdnjiwykbh"]
 
-[ext_resource type="PackedScene" uid="uid://5cnixqf5mdjc" path="res://scene/player.tscn" id="1_cumcy"]
+[ext_resource type="PackedScene" uid="uid://5cnixqf5mdjc" path="res://scene/entities/player.tscn" id="1_cumcy"]
 [ext_resource type="Script" path="res://script/core/world/Map.cs" id="1_kq7n1"]
 [ext_resource type="Script" path="res://script/Loader.cs" id="1_ylf4l"]
 [ext_resource type="Texture2D" uid="uid://cqps1df3beleu" path="res://assets/sprites/map/world/tiles/tileAtlas.png" id="2_0n661"]
@@ -44,7 +44,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_rptdd"]
 tile_size = Vector2i(64, 64)
-custom_data_layer_0/name = "type"
+custom_data_layer_0/name = "name"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_8o2ga")
 

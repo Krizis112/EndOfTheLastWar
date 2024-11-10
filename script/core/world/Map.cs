@@ -10,6 +10,7 @@ public partial class Map : TileMapLayer
 	{
 		Clear();
 		loadFragment(GD.Load<Texture2D>("res://assets/sprites/map/world/1_1x1.png"));
+		Core.mapLayer = this; 
 	}
 
 	private void loadFragment(Texture2D mapFragment) 
@@ -25,6 +26,7 @@ public partial class Map : TileMapLayer
 				Biom biom = Bioms.getBiomWithColor(color.ToHtml(false));
 				if(biom == null) continue;
 				SetCell(position, 0, biom.tiles[color.ToHtml(false)].atlasRegion);
+				GetCellTileData(new Vector2I(x, y)).SetCustomData("name", biom.name);
 			}
 		}
 	}

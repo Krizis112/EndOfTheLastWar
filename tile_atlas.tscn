@@ -1,9 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://1e0q4fchtoxs"]
+[gd_scene load_steps=2 format=3 uid="uid://dlokgkrj5w2dp"]
 
-[ext_resource type="Script" path="res://TileAtlas.cs" id="1_cjmvj"]
+[sub_resource type="CSharpScript" id="CSharpScript_ithpb"]
+script/source = "using Godot;
+using System;
+
+public partial class TileAtlas : Node
+{
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		Bioms.load();
+		GD.Print(Bioms.forest.tiles[\"cbffff\"].getAtlasRegion().ToString());
+	}
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+	}
+}
+"
 
 [node name="TileAtlas" type="Node"]
-script = ExtResource("1_cjmvj")
+script = SubResource("CSharpScript_ithpb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(200, 200)
