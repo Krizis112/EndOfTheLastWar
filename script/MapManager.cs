@@ -25,7 +25,6 @@ public partial class MapManager : Node
 			if(tileData == null) return;
 			Bioms.bioms.TryGetValue(tileData.GetCustomData("type").AsString(), out Biom biom);
 			items = biom.res;
-			GD.Print(string.Join(", ", items?.Select(item => item.name) ?? new string[] { "Items is null" }), prevTile);
 		}
 	}
 }

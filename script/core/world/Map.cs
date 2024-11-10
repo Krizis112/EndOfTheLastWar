@@ -1,13 +1,15 @@
 using Godot;
-using static Bioms;
 
 [Tool]
 public partial class Map : TileMapLayer
 {
+	[Export]
+	public Texture2D atlas;
+
 	public override void _Ready()
 	{
 		Clear();
-		loadFragment(Textures.map);
+		loadFragment(GD.Load<Texture2D>("res://assets/sprites/map/world/1_1x1.png"));
 	}
 
 	private void loadFragment(Texture2D mapFragment) 
@@ -20,16 +22,10 @@ public partial class Map : TileMapLayer
 			for (int y = 0; y < height; y++) {
 				Vector2I position = new Vector2I(x, y);
 				Color color = image.GetPixel(x, y);
-				setTile(color, position);
+				Biom biom = Bioms.getBiomWithColor(color.ToHtml(false));
+				if(biom == null) continue;
+				SetCell(position, 0, biom.tiles[color.ToHtml(false)].atlasRegion);
 			}
 		}
-	}
-
-	private void setTile(Color color, Vector2I position) {
-		GD.Print(color.ToHtml(false));
-		biomsColor.TryGetValue(color.ToHtml(false), out Biom biom);
-		if(biom == null) return;
-		SetCell(position, 1, biom.atlasPosition);
-		GetCellTileData(position).SetCustomData("type", biom.type);
 	}
 }

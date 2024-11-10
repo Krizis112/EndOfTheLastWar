@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://1e0q4fchtoxs"]
+
+[ext_resource type="Script" path="res://TileAtlas.cs" id="1_cjmvj"]
+
+[node name="TileAtlas" type="Node"]
+script = ExtResource("1_cjmvj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(200, 200)
+scale = Vector2(3, 3)

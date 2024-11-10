@@ -5,7 +5,7 @@ public partial class Loader : Node
 {
 	public override void _Ready()
 	{
-		Items.load();
+		ItemTypes.load();
 		Bioms.load();
 	}
 }
