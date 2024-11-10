@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://lbsdnjiwykbh"]
+[gd_scene load_steps=8 format=3 uid="uid://lbsdnjiwykbh"]
 
 [ext_resource type="PackedScene" uid="uid://5cnixqf5mdjc" path="res://scene/entities/player.tscn" id="1_cumcy"]
 [ext_resource type="Script" path="res://script/core/world/Map.cs" id="1_kq7n1"]
 [ext_resource type="Script" path="res://script/Loader.cs" id="1_ylf4l"]
 [ext_resource type="Texture2D" uid="uid://cqps1df3beleu" path="res://assets/sprites/map/world/tiles/tileAtlas.png" id="2_0n661"]
+[ext_resource type="Script" path="res://script/core/entity/Inventory.cs" id="2_rt8fr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o2ga"]
 texture = ExtResource("2_0n661")
@@ -52,6 +53,11 @@ sources/0 = SubResource("TileSetAtlasSource_8o2ga")
 
 [node name="Loader" type="Node" parent="."]
 script = ExtResource("1_ylf4l")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="InventoryManager" type="Node" parent="Managers"]
+script = ExtResource("2_rt8fr")
 
 [node name="World" type="Node" parent="."]
 

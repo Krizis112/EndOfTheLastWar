@@ -5,5 +5,6 @@ public partial class Core : Node {
 	
 	public static Player player;
 	public static TileMapLayer mapLayer;
+	public static Inventory inventory;
 	public static Biom biom = Bioms.error;
 }
