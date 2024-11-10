@@ -7,7 +7,7 @@ public partial class Inventory : Node {
     private Dictionary<ItemType, ItemStack> itemStacks;
     private List<Item> items;
 
-    public int length => itemStacks.Count;
+    public int length => itemStacks.Count + items.Count;
 
     public event Action<List<ItemStack>> stackUpdater;
     public event Action<List<Item>> itemUpdater;
