@@ -1,9 +1,9 @@
 public class ItemStack {
     public int count;
-    public Item item;
+    public ItemType item;
 
-    public ItemStack(Item item, int count) {
-        this.item = item;
+    public ItemStack(ItemType itemType, int count) {
+        this.item = itemType;
         this.count = count;
     }
 }

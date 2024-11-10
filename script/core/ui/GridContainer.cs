@@ -14,8 +14,8 @@ public partial class GridContainer : Godot.GridContainer
 	}
 	public void updateSlots(params ItemStack[] items) {
 		for(int i = 0; i < items.Length; i++) {
-			ItemType itemType = items[i].item.itemType;
-			cells[i].changeTexture(items[i].item.itemType.texture2D);
+			ItemType itemType = items[i].item;
+			cells[i].changeTexture(items[i].item.texture2D);
 			if(itemType.stackable) {
 				cells[i].label.Text = items[i].count.ToString();
 			} else {
