@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bx1cjl0w10y8u"
-path="res://.godot/imported/forest.png-fa3c80648579744924ae3bac52f322bf.ctex"
+uid="uid://cwnv6b0dptxhs"
+path="res://.godot/imported/itemAtlas.png-0049346a4c2c71017141d4ba9756c912.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/map/world/tiles/forest.png"
-dest_files=["res://.godot/imported/forest.png-fa3c80648579744924ae3bac52f322bf.ctex"]
+source_file="res://assets/sprites/map/world/itemAtlas.png"
+dest_files=["res://.godot/imported/itemAtlas.png-0049346a4c2c71017141d4ba9756c912.ctex"]
 
 [params]
 

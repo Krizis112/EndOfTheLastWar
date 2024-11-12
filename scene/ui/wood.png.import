@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxkrlsnnb72mk"
-path="res://.godot/imported/tileset_1024.png-9d0c822be1c5b7cdf885373e6f59d317.ctex"
+uid="uid://bxln8wja8ccdw"
+path="res://.godot/imported/wood.png-ca6e1d63975e843294c5255a30731adb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/map/world/tiles/tileset_1024.png"
-dest_files=["res://.godot/imported/tileset_1024.png-9d0c822be1c5b7cdf885373e6f59d317.ctex"]
+source_file="res://scene/ui/wood.png"
+dest_files=["res://.godot/imported/wood.png-ca6e1d63975e843294c5255a30731adb.ctex"]
 
 [params]
 

@@ -16,6 +16,12 @@ public partial class TextureAtlas
 		loadJson(path);
 		loadAtlas();
 	}
+	public TextureAtlas(string path, int atlasRegionSize) {
+		this.atlasRegionSize = atlasRegionSize;
+		loadTexture(path);
+		loadJson(path);
+		loadAtlas();
+	}
 
 	private void loadTexture(string path)
 	{
@@ -56,7 +62,7 @@ public partial class TextureAtlas
 			string name = regionData["filename"].AsString().Substring(0, regionData["filename"].AsString().Length - 4);
 			Dictionary<string, Variant> frameData = (Dictionary<string, Variant>)regionData["frame"];
 
-			Region region = new Region(name, (int)frameData["x"], (int)frameData["y"], (int)frameData["w"], (int)frameData["h"]);
+			Region region = new Region(name, (int)frameData["x"], (int)frameData["y"], atlasRegionSize, atlasRegionSize);
 			addRegion(region);
 		}
 	}

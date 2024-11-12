@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1kofp307hga5"
-path="res://.godot/imported/sea.png-661c8b9825b953c3527a15d14d6a9591.ctex"
+uid="uid://dt7lqhqc0apsk"
+path="res://.godot/imported/water.png-817b08231a2ad4ae2410fb94c54aa35d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/map/world/tiles/sea.png"
-dest_files=["res://.godot/imported/sea.png-661c8b9825b953c3527a15d14d6a9591.ctex"]
+source_file="res://assets/sprites/water.png"
+dest_files=["res://.godot/imported/water.png-817b08231a2ad4ae2410fb94c54aa35d.ctex"]
 
 [params]
 

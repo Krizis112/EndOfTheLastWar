@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class GridContainer : Godot.GridContainer
+public partial class InventoryUI : GridContainer
 {
 	private const int cellsCount = 32;
 	public Cell[] cells = new Cell[cellsCount];

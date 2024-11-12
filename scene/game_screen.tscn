@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://lbsdnjiwykbh"]
+[gd_scene load_steps=9 format=3 uid="uid://lbsdnjiwykbh"]
 
-[ext_resource type="PackedScene" uid="uid://5cnixqf5mdjc" path="res://scene/entities/player.tscn" id="1_cumcy"]
 [ext_resource type="Script" path="res://script/core/world/Map.cs" id="1_kq7n1"]
 [ext_resource type="Script" path="res://script/Loader.cs" id="1_ylf4l"]
 [ext_resource type="Texture2D" uid="uid://cqps1df3beleu" path="res://assets/sprites/map/world/tiles/tileAtlas.png" id="2_0n661"]
 [ext_resource type="Script" path="res://script/core/entity/Inventory.cs" id="2_rt8fr"]
+[ext_resource type="Script" path="res://script/core/ui/Ui.cs" id="5_q1xeh"]
+[ext_resource type="PackedScene" uid="uid://uegq60wnktdw" path="res://scene/ui/inventory.tscn" id="6_q12cr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8o2ga"]
 texture = ExtResource("2_0n661")
@@ -65,8 +66,9 @@ script = ExtResource("2_rt8fr")
 tile_set = SubResource("TileSet_rptdd")
 script = ExtResource("1_kq7n1")
 
-[node name="Player" parent="." instance=ExtResource("1_cumcy")]
-position = Vector2(146, 94)
+[node name="Entities" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(0.2, 0.2)
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("5_q1xeh")
+
+[node name="Inventory" parent="UI" instance=ExtResource("6_q12cr")]

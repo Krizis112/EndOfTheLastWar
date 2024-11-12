@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "water.png",
+	"frame": {"x":67,"y":1,"w":28,"h":64},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":18,"y":0,"w":28,"h":64},
+	"sourceSize": {"w":64,"h":64}
+},
+{
+	"filename": "wood.png",
+	"frame": {"x":1,"y":1,"w":64,"h":40},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":12,"w":64,"h":40},
+	"sourceSize": {"w":64,"h":64}
+}],
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "itemAtlas.png",
+	"format": "RGBA8888",
+	"size": {"w":96,"h":66},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9692c02f43271b05a82225a3a75fd507:4f502b3d45a368005f96d008319857c7:dda5a0ebfe3af5081ebd0bb39e8c326b$"
+}
+}
